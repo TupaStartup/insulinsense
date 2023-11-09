@@ -13,6 +13,23 @@ return new class extends Migration
     {
         Schema::create('pacientes', function (Blueprint $table) {
             $table->id();
+            $table->string('cpf');
+            $table->string('nome');
+            $table->string('dt_nascimento');
+            $table->string('endereco');
+            $table->string('telefone');
+            $table->string('email');
+            $table->string('responsavel_legal')->nullable();
+            $table->boolean('alergia');
+            $table->string('tipos_alergia')->nullable();
+            $table->boolean('medicamentos');
+            $table->string('tipos_medicamentos')->nullable();
+            $table->boolean('cirurgias');
+            $table->string('historico_cirurgia')->nullable();
+            $table->boolean('tabagista');
+            $table->boolean('alcool');
+            $table->boolean('atividade_fisica');
+            $table->string('tipo_atividade_fisica')->nullable();
             $table->timestamps();
         });
     }
