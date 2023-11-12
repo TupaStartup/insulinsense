@@ -19,7 +19,7 @@ return new class extends Migration
             $table->decimal('adiponectina');
             $table->decimal('triglicerideos');
             $table->decimal('pressao_arterial');
-            $table->deciaml('sensibilidade_insulinica');
+            $table->decimal('sensibilidade_insulinica');
             $table->timestamps();
         });
     }

@@ -18,4 +18,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::post('/pacientes/cadastrar', 'App\Http\Controllers\PacienteController@store');
+Route::post('/pacientes/cadastrar', 'App\Http\Controllers\PacientesController@store');
+Route::get('/pacientes/editar/{id}', 'App\Http\Controllers\PacientesController@edit');
