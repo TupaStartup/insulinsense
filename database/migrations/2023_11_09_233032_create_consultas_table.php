@@ -15,6 +15,8 @@ return new class extends Migration
             $table->id();
             $table->integer('paciente_id');
             $table->integer('medico_id');
+            $table->date('data')->format('d/m/Y');
+            $table->time('hora')->format('H:i');
             $table->timestamps();
         });
     }
