@@ -19,6 +19,8 @@ return new class extends Migration
             $table->decimal('adiponectina');
             $table->decimal('triglicerideos');
             $table->decimal('pressao_arterial');
+            $table->decimal('glicemia_jejum');
+            $table->decimal('hba1c');
             $table->decimal('sensibilidade_insulinica');
             $table->timestamps();
         });

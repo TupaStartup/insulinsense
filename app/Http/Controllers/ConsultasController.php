@@ -24,7 +24,7 @@ class ConsultasController extends Controller
     {
         $validados = $request->validated();
         ConsultasRegras::cadastrarConsulta($validados);
-        return response()->json(['status' => 'Médico cadastrado com sucesso!'], 200);
+        return response()->json(['status' => 'Consulta cadastrada com sucesso!'], 200);
 
     }
 
@@ -42,7 +42,7 @@ class ConsultasController extends Controller
     {
         $validados = $request->validated();
         ConsultasRegras::atualizarConsulta($id, $validados);
-        return response()->json(['status' => 'Médico atualizado com sucesso!'], 200);
+        return response()->json(['status' => 'Consulta atualizada com sucesso!'], 200);
     }
 
     public function destroy(string $id)
