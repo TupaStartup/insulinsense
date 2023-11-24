@@ -35,7 +35,7 @@ class ConsultasController extends Controller
 
     public function edit(string $id)
     {
-        return Consultas::find($id);
+        return ConsultasRegras::editarConsulta($id);
     }
 
     public function update(ConsultasRequest $request, string $id)
