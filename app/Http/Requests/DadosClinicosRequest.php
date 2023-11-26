@@ -22,6 +22,7 @@ class DadosClinicosRequest extends FormRequest
     public function rules(): array
     {
         return [
+            'consulta_id' => 'required|integer',
             'medida_cintura' => 'required|numeric',
             'peso' => 'required|numeric',
             'hba1c' => 'nullable|numeric',

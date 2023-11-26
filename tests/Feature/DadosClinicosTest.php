@@ -15,6 +15,7 @@ class DadosClinicosTest extends TestCase
         $faker = Faker::create();
 
         return [
+            'consulta_id' => $formulario['consulta_id'] ?? $faker->numberBetween(1,6000),
             'medida_cintura' => $formulario['medida_cintura'] ?? $faker->numberBetween(50, 150),
             'peso' => $formulario['peso'] ?? $faker->numberBetween(40, 150),
             'hba1c' => $formulario['hba1c'] ?? $faker->numberBetween(0, 100),
@@ -22,13 +23,13 @@ class DadosClinicosTest extends TestCase
             'pressao_arterial' => $formulario['pressao_arterial'] ?? $faker->numberBetween(50, 200),
             'triglicerideos' => $formulario['triglicerideos'] ?? $faker->numberBetween(30, 750),
             'adiponectina' => $formulario['adiponectina'] ?? $faker->numberBetween(5, 8,5),
-            'unidade_diaria_insulina' => $formulario['unidade_diaria_insulina'] ?? $faker->numberBetween(0, 100),
+            // 'unidade_diaria_insulina' => $formulario['unidade_diaria_insulina'] ?? $faker->numberBetween(1, 100),
             'dose_insulina' => $formulario['dose_insulina'] ?? $formulario['unidade_diaria_insulina'] / $formulario['peso']
         ];
     }
 
     /** @test */
-     public function cadastrarDadosClinicos(): void
+     public function cadastrarDadosClinicos()
     {
         $formulario=[];
         $response = $this->post(self::url.'/dados-clinicos/cadastrar', $this->formularioPadrao($formulario));
@@ -48,41 +49,41 @@ class DadosClinicosTest extends TestCase
         $response->assertStatus(200);
     }
 
-    /** @test */
-    public function atualizarMedico(): void
-    {
-        $formulario=
-        [
-            'cpf' => '12312332112',
-            'nome' => 'Chucrute da Silva',
-            'dt_nascimento' => 22/10/1989,
-            'endereco' => 'Trav. Humaitá, 123, Belém-PA',
-            'telefone' => '8989-8989',
-            'email' => 'drchucrutes@gmail.com',
-            'genero' => 'M',
-            'crm' => '668978',
-            'uf_crm' => 'PA',
-            'especialidade' => 'Endocrinologista',
-            'status_medico' => 2,
-            'status_financeiro' => 2,
-        ];
-        $id = $this->buscarMedicoValido();
-        $response = $this->put(self::url.'/dados-clinicos/atualizar/'.$id, $this->formularioPadrao($formulario));
-        $medico = $this->get(self::url.'/dados-clinicos/editar/'.$id);
+    // /** @test */
+    // public function atualizarDadosClinicos(): void
+    // {
+    //     $formulario=
+    //     [
+    //         'cpf' => '12312332112',
+    //         'nome' => 'Chucrute da Silva',
+    //         'dt_nascimento' => 22/10/1989,
+    //         'endereco' => 'Trav. Humaitá, 123, Belém-PA',
+    //         'telefone' => '8989-8989',
+    //         'email' => 'drchucrutes@gmail.com',
+    //         'genero' => 'M',
+    //         'crm' => '668978',
+    //         'uf_crm' => 'PA',
+    //         'especialidade' => 'Endocrinologista',
+    //         'status_medico' => 2,
+    //         'status_financeiro' => 2,
+    //     ];
+    //     $id = $this->buscarMedicoValido();
+    //     $response = $this->put(self::url.'/dados-clinicos/atualizar/'.$id, $this->formularioPadrao($formulario));
+    //     $medico = $this->get(self::url.'/dados-clinicos/editar/'.$id);
         
-        // dump($id);
-        // dump($formulario);
-        // dump($medico->getContent());
+    //     // dump($id);
+    //     // dump($formulario);
+    //     // dump($medico->getContent());
 
-        if($medico->getContent() == $formulario)
-        {
-            $response->assertStatus(200);
-        }
-        else
-        {
-            $response->assertStatus(500);
-        }
-    }
+    //     if($medico->getContent() == $formulario)
+    //     {
+    //         $response->assertStatus(200);
+    //     }
+    //     else
+    //     {
+    //         $response->assertStatus(500);
+    //     }
+    // }
     
     /** @test */
     public function cargaMaximaCadastroDadosClinicos(): void

@@ -3,6 +3,7 @@
 namespace App\Models\Regras;
 
 use App\Models\Entity\Consultas;
+use App\Models\Entity\DadosClinicos;
 
 
 class DadosClinicosRegras {
@@ -10,7 +11,7 @@ class DadosClinicosRegras {
     public static function cadastrarDadosClinicos($validados) {
         
         $dado = new DadosClinicos;
-        $dado-> = $validados['paciente_id'];
+        $dado->consulta_id = $validados['consulta_id'];
         $dado->medida_cintura = $validados['medida_cintura'];
         $dado->peso = $validados['peso'];
         $dado->hba1c = $validados['hba1c'];
@@ -29,7 +30,7 @@ class DadosClinicosRegras {
         
         $dado = DadosClinicos::find($id);
         
-        $dado-> = $validados['paciente_id'];
+        $dado->consulta_id = $validados['consulta_id'];
         $dado->medida_cintura = $validados['medida_cintura'];
         $dado->peso = $validados['peso'];
         $dado->hba1c = $validados['hba1c'];

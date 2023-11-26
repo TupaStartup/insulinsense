@@ -21,7 +21,7 @@ Route::put('/consultas/atualizar/{id}', 'App\Http\Controllers\ConsultasControlle
 Route::delete('/consultas/deletar/{id}', 'App\Http\Controllers\ConsultasController@destroy');
 
 // Rotas do CRUD de Dados Clínicos
-Route::post('/dadosclinicos/cadastrar', 'App\Http\Controllers\DadosClinicosController@store');
-Route::get('/dadosclinicos/editar/{id}', 'App\Http\Controllers\DadosClinicosController@edit');
-Route::put('/dadosclinicos/atualizar/{id}', 'App\Http\Controllers\DadosClinicosController@update');
-Route::delete('/dadosclinicos/deletar/{id}', 'App\Http\Controllers\DadosClinicosController@destroy');
+Route::post('/dados-clinicos/cadastrar', 'App\Http\Controllers\DadosClinicosController@store');
+Route::get('/dados-clinicos/editar/{id}', 'App\Http\Controllers\DadosClinicosController@edit');
+Route::put('/dados-clinicos/atualizar/{id}', 'App\Http\Controllers\DadosClinicosController@update');
+Route::delete('/dados-clinicos/deletar/{id}', 'App\Http\Controllers\DadosClinicosController@destroy');
