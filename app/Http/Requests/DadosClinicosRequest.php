@@ -31,7 +31,9 @@ class DadosClinicosRequest extends FormRequest
             'triglicerideos' => 'nullable|numeric',
             'adiponectina' => 'nullable|numeric',
             'unidade_diaria_insulina' => 'nullable|numeric',
-            'dose_insulina' => 'nullable|numeric',  // Unidade Diária de Insulina (U/dia) / Peso (kg)
+            'dose_insulina' => 'nullable|numeric',
+            'sensibilidade_insulinica' => 'nullable'
+            // Unidade Diária de Insulina (U/dia) / Peso (kg)
         ];
     }
 }

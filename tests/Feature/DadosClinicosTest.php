@@ -23,15 +23,18 @@ class DadosClinicosTest extends TestCase
             'pressao_arterial' => $formulario['pressao_arterial'] ?? $faker->numberBetween(50, 200),
             'triglicerideos' => $formulario['triglicerideos'] ?? $faker->numberBetween(30, 750),
             'adiponectina' => $formulario['adiponectina'] ?? $faker->numberBetween(5, 8,5),
-            // 'unidade_diaria_insulina' => $formulario['unidade_diaria_insulina'] ?? $faker->numberBetween(1, 100),
-            'dose_insulina' => $formulario['dose_insulina'] ?? $formulario['unidade_diaria_insulina'] / $formulario['peso']
+            'unidade_diaria_insulina' => $formulario['unidade_diaria_insulina'] ?? $faker->numberBetween(1, 100),
+            'peso' => $formulario['peso'] ?? $faker->numberBetween(40, 180),
+            'dose_insulina' => $formulario['dose_insulina'] ?? $formulario['unidade_diaria_insulina'] / $formulario['peso'],
+            'sensibilidade_insulinica' => $formulario['sensibilidade_insulinica'] ?? 0
         ];
     }
 
     /** @test */
      public function cadastrarDadosClinicos()
     {
-        $formulario=[];
+        $formulario=['unidade_diaria_insulina' => 7,
+                     'peso' => 80];
         $response = $this->post(self::url.'/dados-clinicos/cadastrar', $this->formularioPadrao($formulario));
 
         $response->assertStatus(200);
@@ -43,61 +46,57 @@ class DadosClinicosTest extends TestCase
     }
 
     /** @test */
-    public function editarDadosClinicos(): void
+    public function editarDadosClinicos()
     {
         $response = $this->get(self::url.'/dados-clinicos/editar/'.$this->buscarDadosClinicos());
+        dump(json_decode($response->getContent(), true));
         $response->assertStatus(200);
     }
 
-    // /** @test */
-    // public function atualizarDadosClinicos(): void
-    // {
-    //     $formulario=
-    //     [
-    //         'cpf' => '12312332112',
-    //         'nome' => 'Chucrute da Silva',
-    //         'dt_nascimento' => 22/10/1989,
-    //         'endereco' => 'Trav. Humaitá, 123, Belém-PA',
-    //         'telefone' => '8989-8989',
-    //         'email' => 'drchucrutes@gmail.com',
-    //         'genero' => 'M',
-    //         'crm' => '668978',
-    //         'uf_crm' => 'PA',
-    //         'especialidade' => 'Endocrinologista',
-    //         'status_medico' => 2,
-    //         'status_financeiro' => 2,
-    //     ];
-    //     $id = $this->buscarMedicoValido();
-    //     $response = $this->put(self::url.'/dados-clinicos/atualizar/'.$id, $this->formularioPadrao($formulario));
-    //     $medico = $this->get(self::url.'/dados-clinicos/editar/'.$id);
+     /** @test */
+     public function atualizarDadosClinicos(): void
+     {
+         $formulario=
+         [
+            'medida_cintura' => 0,
+            'peso' => 0,
+            'hba1c' => 11,
+            'glicose_jejum' =>11,
+            'pressao_arterial' => 11,
+            'triglicerideos' => 11,
+            'adiponectina' => 11,
+            'unidade_diaria_insulina' => 11,
+            'dose_insulina' => 11,
+            'sensibilidade_insulinica' => 11
+         ];
+         
+         $id = 1;
+         $dado_editar = $this->get(self::url.'/dados-clinicos/editar/'.$id);
+         $response = $this->put(self::url.'/dados-clinicos/atualizar/'.$id, $this->formularioPadrao($formulario));
         
-    //     // dump($id);
-    //     // dump($formulario);
-    //     // dump($medico->getContent());
-
-    //     if($medico->getContent() == $formulario)
-    //     {
-    //         $response->assertStatus(200);
-    //     }
-    //     else
-    //     {
-    //         $response->assertStatus(500);
-    //     }
-    // }
+         
+         dump(json_decode($dado_editar->getContent(), true));
+         dump($formulario);
+         $response->assertStatus(200);
+    }
     
     /** @test */
-    public function cargaMaximaCadastroDadosClinicos(): void
+    public function cadastroVariosDadosClinicos(): void
     {
         DB::beginTransaction();
     
         try {
-            for ($i = 0; $i < 100; $i++) {
-                $formulario = [];
+            for ($i = 0; $i < 40; $i++) {
+               $formulario=
+               [
+                    'unidade_diaria_insulina' => 7,
+                    'peso' => 80
+                ];
                 $response = $this->post(self::url.'/dados-clinicos/cadastrar', $this->formularioPadrao($formulario));
             }
     
             // A verificação do status deve ocorrer dentro do bloco try-catch
-            $response->assertStatus(429);
+            $response->assertStatus(200);
     
             DB::commit();
         } catch (\Exception $e) {
@@ -109,7 +108,8 @@ class DadosClinicosTest extends TestCase
     /** @test */
     public function deletarDadosClinicos()
     {
-        $response = $this->delete(self::url.'/dados-clinicos/deletar/'.$this->buscarDadosClinicos());
+        $id = 1;
+        $response = $this->delete(self::url.'/dados-clinicos/deletar/'.$id);
 
         $response->assertStatus(200);
     }

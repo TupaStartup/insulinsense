@@ -14,14 +14,16 @@ return new class extends Migration
         Schema::create('dados_clinicos', function (Blueprint $table) {
             $table->id();
             $table->integer('consulta_id');
-            $table->decimal('medida_cintura');
-            $table->decimal('dose_insulina');
-            $table->decimal('adiponectina');
-            $table->decimal('triglicerideos');
-            $table->decimal('pressao_arterial');
-            $table->decimal('glicemia_jejum');
-            $table->decimal('hba1c');
-            $table->decimal('sensibilidade_insulinica');
+            $table->decimal('medida_cintura')->nullable();
+            $table->decimal('dose_insulina')->nullable();
+            $table->decimal('adiponectina')->nullable();
+            $table->decimal('triglicerideos')->nullable();
+            $table->decimal('pressao_arterial')->nullable();
+            $table->decimal('glicose_jejum')->nullable();
+            $table->decimal('hba1c')->nullable();
+            $table->decimal('peso')->nullable();
+            $table->decimal('unidade_diaria_insulina')->nullable();
+            $table->decimal('sensibilidade_insulinica')->nullable();
             $table->timestamps();
         });
     }

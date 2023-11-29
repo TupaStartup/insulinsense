@@ -5,6 +5,7 @@ namespace Tests\Feature;
 use Tests\TestCase;
 use Faker\Factory as Faker;
 use Illuminate\Support\Facades\DB;
+use App\Models\Entity\Medicos;
 
 class MedicosTest extends TestCase
 {
@@ -41,7 +42,12 @@ class MedicosTest extends TestCase
     
     public function buscarMedicoValido()
     {
-        return DB::table('medicos')->whereNotNull('id')->value('id');
+        do{
+            $id = rand(1, 50);
+            $registro = Medicos::find($id);
+        
+        } while (!$registro);
+        return $id;
     }
 
     /** @test */
@@ -70,14 +76,16 @@ class MedicosTest extends TestCase
             'status_financeiro' => 2,
         ];
         $id = $this->buscarMedicoValido();
-        $response = $this->put(self::url.'/medicos/atualizar/'.$id, $this->formularioPadrao($formulario));
         $medico = $this->get(self::url.'/medicos/editar/'.$id);
+        $response = $this->put(self::url.'/medicos/atualizar/'.$id, $this->formularioPadrao($formulario));
+        $medico_editado = $this->get(self::url.'/medicos/editar/'.$id);
         
-        // dump($id);
-        // dump($formulario);
-        // dump($medico->getContent());
+        dump($id);
+        dump(json_decode($medico->getContent(), true));
+        dump(json_decode($medico_editado->getContent(), true));
+        dump(json_decode($response->getContent(), true));
 
-        if($medico->getContent() == $formulario)
+        if(json_decode($medico_editado->getContent(), true)) == $formulario)
         {
             $response->assertStatus(200);
         }
