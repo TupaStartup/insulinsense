@@ -25,3 +25,6 @@ Route::post('/dados-clinicos/cadastrar', 'App\Http\Controllers\DadosClinicosCont
 Route::get('/dados-clinicos/editar/{id}', 'App\Http\Controllers\DadosClinicosController@edit');
 Route::put('/dados-clinicos/atualizar/{id}', 'App\Http\Controllers\DadosClinicosController@update');
 Route::delete('/dados-clinicos/deletar/{id}', 'App\Http\Controllers\DadosClinicosController@destroy');
+
+// Rtoas
+Route::get('/teste', 'App\Http\Controllers\DadosClinicosController@teste');

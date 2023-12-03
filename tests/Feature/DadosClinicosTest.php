@@ -113,4 +113,11 @@ class DadosClinicosTest extends TestCase
 
         $response->assertStatus(200);
     }
+    
+    /** @test */
+    public function teste()
+    {
+        $response = $this->get(self::url.'/teste');
+        dump(json_decode($response->getContent(), true));        
+    }
 }

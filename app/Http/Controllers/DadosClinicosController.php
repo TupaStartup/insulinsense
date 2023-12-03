@@ -7,6 +7,7 @@ use App\Models\Entity\DadosClinicos;
 use App\Http\Requests\DadosClinicosRequest;
 use App\Models\Regras\DadosClinicosRegras;
 use App\Models\Facade\DadosClinicosDB;
+use Illuminate\Support\Facades\Http;
 
 class DadosClinicosController extends Controller
 {
@@ -37,4 +38,9 @@ class DadosClinicosController extends Controller
             $dado->delete();
             return response()->json(['status' => 'Dados Removidos com Sucesso!'],200);
         }
+    public function teste()
+    {
+            $Url = Http::get('http://3.238.228.29:5000/homepage');
+            return $Url;
+    }
 }
