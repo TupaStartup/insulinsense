@@ -38,9 +38,11 @@ class DadosClinicosController extends Controller
             $dado->delete();
             return response()->json(['status' => 'Dados Removidos com Sucesso!'],200);
         }
-    public function teste()
+    
+        public function teste(DadosClinicosRequest $request)
     {
-            $Url = Http::get('http://3.238.228.29:5000/homepage');
+            $dados = $request->validated();
+            $Url = Http::post('http://3.238.116.88:5000/T1D', json_encode($dados));
             return $Url;
     }
 }

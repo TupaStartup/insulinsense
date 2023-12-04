@@ -27,4 +27,4 @@ Route::put('/dados-clinicos/atualizar/{id}', 'App\Http\Controllers\DadosClinicos
 Route::delete('/dados-clinicos/deletar/{id}', 'App\Http\Controllers\DadosClinicosController@destroy');
 
 // Rtoas
-Route::get('/teste', 'App\Http\Controllers\DadosClinicosController@teste');
+Route::post('/teste', 'App\Http\Controllers\DadosClinicosController@teste');

@@ -117,7 +117,10 @@ class DadosClinicosTest extends TestCase
     /** @test */
     public function teste()
     {
-        $response = $this->get(self::url.'/teste');
-        dump(json_decode($response->getContent(), true));        
+        $formulario=['unidade_diaria_insulina' => 7,
+                     'peso' => 80];
+        $response = $this->post(self::url.'/teste',$this->formularioPadrao($formulario));
+        dump($response->getContent(), true);      
+        $response->assertStatus(200);  
     }
 }
