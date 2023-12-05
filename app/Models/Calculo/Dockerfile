@@ -2,7 +2,7 @@ FROM python:3.10-alpine
 
 RUN pip install Flask
 
-COPY ./app.py .
+COPY app/Models/Calculo .
 
 EXPOSE 5000
 
