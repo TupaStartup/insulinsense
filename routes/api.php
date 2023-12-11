@@ -9,6 +9,7 @@ Route::put('/pacientes/atualizar/{id}', 'App\Http\Controllers\PacientesControlle
 Route::delete('/pacientes/deletar/{id}', 'App\Http\Controllers\PacientesController@destroy');
 
 // Rotas do CRUD de Médicos
+Route::get('/medicos', 'App\Http\Controllers\MedicosController@index');
 Route::post('/medicos/cadastrar', 'App\Http\Controllers\MedicosController@store');
 Route::get('/medicos/editar/{id}', 'App\Http\Controllers\MedicosController@edit');
 Route::put('/medicos/atualizar/{id}', 'App\Http\Controllers\MedicosController@update');
@@ -26,11 +27,6 @@ Route::get('/dados-clinicos/editar/{id}', 'App\Http\Controllers\DadosClinicosCon
 Route::put('/dados-clinicos/atualizar/{id}', 'App\Http\Controllers\DadosClinicosController@update');
 Route::delete('/dados-clinicos/deletar/{id}', 'App\Http\Controllers\DadosClinicosController@destroy');
 
-// Rotas para Cálculo de Sensibilidade Insulínica
-Route::post('/dados-clinicos/calculo/t1d', 'App\Http\Controllers\DadosClinicosController@calculo')->name("t1d");
-Route::post('/dados-clinicos/calculo/t1d-nonfasting', 'App\Http\Controllers\DadosClinicosController@calculo')->name("t1d-nonfasting");
-Route::post('/dados-clinicos/calculo/t1d-exAdiponectina', 'App\Http\Controllers\DadosClinicosController@calculo')->name("t1d-exAdiponectina");
-Route::post('/dados-clinicos/calculo/nonDiabetic', 'App\Http\Controllers\DadosClinicosController@calculo')->name("nonDiabetic");
-Route::post('/dados-clinicos/calculo/nonDiabetic-nonfasting', 'App\Http\Controllers\DadosClinicosController@calculo')->name("nonDiabetic-nonfasting");
-Route::post('/dados-clinicos/calculo/nonDiabetic-exAdiponectina', 'App\Http\Controllers\DadosClinicosController@calculo')->name("nonDiabetic-exAdiponectina");
 
+// Rtoas
+Route::post('/teste', 'App\Http\Controllers\DadosClinicosController@calculo')->name('t1d');

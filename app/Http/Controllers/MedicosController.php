@@ -6,12 +6,13 @@ use Illuminate\Http\Request;
 use App\Models\Entity\Medicos;
 use App\Http\Requests\MedicosRequest;
 use App\Models\Regras\MedicosRegras;
+use App\Models\Facade\MedicoDB;
 
 class MedicosController extends Controller
 {
     public function index()
     {
-        //
+       return MedicoDB::montarGrid();
     }
 
     public function create()

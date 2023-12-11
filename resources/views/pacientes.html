@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/consultas.css">
+    <title>Pacientes</title>
+</head>
+
+<body>
+    <div class="app-bar-index">
+        <img src="assets/InsulinSense.png" alt="logo">
+        <a href="consultas.html">Consultas</a>
+        <a href="pacientes.html">Pacientes</a>
+    </div>
+
+    <div class="voltar-para">
+        <a href="index.html"><img src="assets/home.svg" alt="home"></a>
+    </div>
+
+    <div class="pacientes-busca">
+
+        <h1>Pesquisar paciente</h1>
+        <form id="validacao" onsubmit="return buscarConsultas()">
+            <div class="input-consulta">
+                <input type="number" id="cpfPaciente" name="cpfPaciente" placeholder="CPF" required>
+            </div>
+
+            <div class="input-consulta">
+                <input type="text" id="convenio" name="convenio" placeholder="Convênio" required>
+            </div>
+
+            <div class="buscarPacientes">
+                <input type="submit" value="Buscar">
+            </div>
+
+        </form>
+
+    </div>
+
+    <div class="resultados-pesquisa">
+        <p>Resultados</p>
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,68 @@
+body {
+    margin: 0;
+}
+
+.app-bar-index {
+    width: 200px;
+    height: 100vh;
+    background-color: #79d1fa5e;
+    position: fixed;
+    left: 0;
+}
+.app-bar-index img{
+    width: 180px;
+    margin-top: 20px;
+    padding: 3%;
+}
+
+.app-bar-index a{
+    display: block; /* Torna o link um bloco para ocupar toda a largura */
+    height: 5%; /* Ocupa 100% da altura da div */
+    text-align: center; /* Centraliza o texto dentro do link */
+    font-size: 25px;
+    text-decoration: none;
+    background-color: rgba(255, 255, 255, 0.699);
+    text-align: center;
+    color: rgb(0, 0, 0);
+    border-bottom: 1px solid #000000; /*Linha entre os botões*/
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.app-bar-index a:last-child {
+    border-bottom: none; /* Remove a linha do último link para evitar duplicação */
+}
+
+.perfil img {
+    display: block;
+    margin: 0 auto; /* Centraliza horizontalmente usando margens automáticas */
+    max-width: 100%; /* Garante que a imagem não ultrapasse a largura da div */
+    max-height: 100%; /* Garante que a imagem não ultrapasse a altura da div */
+    width: 120px;
+}
+
+.perfil a{
+    display: block;
+    margin: 0 auto; /* Centraliza horizontalmente usando margens automáticas */
+    max-width: 100%; /* Garante que a imagem não ultrapasse a largura da div */
+    max-height: 100%; /* Garante que a imagem não ultrapasse a altura da div */
+    width: 120px;
+    text-decoration: none;
+    background-color: #4caf50;
+    color: aliceblue;
+    border-radius: 40px;
+    text-align: center;
+}
+
+.perfil p{
+    display: block;
+    margin: 0 auto; /* Centraliza horizontalmente usando margens automáticas */
+    max-width: 100%; /* Garante que a imagem não ultrapasse a largura da div */
+    max-height: 100%; /* Garante que a imagem não ultrapasse a altura da div */
+    width: 300px;
+    text-decoration: none;
+    background-color: #79d1fa5e;
+    color: rgb(0, 0, 0);
+    text-align: center;
+    border-radius: 10px;
+    font-size: 20px;
+}

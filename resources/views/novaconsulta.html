@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/novaconsulta.css">
+    <title>Nova Consulta</title>
+</head>
+
+<body>
+    <div class="topo">
+        <img src="assets/InsulinSense.png" alt="Logo">
+    </div>
+
+    <div class="voltar-para">
+        <a href="index.html"><img src="assets/home.svg" alt="home"></a>
+        <a href="consultas.html"><img src="assets/botao-voltar.svg" alt="voltar"></a>
+    </div>
+
+    <div class="nova-consulta">
+        <h1>Nova Consulta</h1>
+        <form id="validacao" onsubmit="return cadastrarConsulta()">
+            <div class="input-consulta">
+                <input type="text" id="nome-paciente" name="nome-paciente" placeholder="Nome do Paciente" required>
+            </div>
+
+            <div class="input-consulta">
+                
+                <input type="date" id="data-consulta" name="data-consulta" required>
+                <p class="titulo-input">Data da Consulta</p>
+            </div>
+
+            <div class="input-consulta">
+                <input type="text" id="convenio" name="convenio" placeholder="Convênio" required>
+            </div>
+
+            <div class="input-consulta">
+                
+                <input type="date" id="Data de Nascimento" name="Data de Nascimento" placeholder="Data de Nascimento"
+                    required>
+                    <p class="titulo-input">Data de Nascimento</p>
+            </div>
+
+            <div class="input-consulta">
+                <input type="number" id="Peso/KG" name="Peso/KG" placeholder="Peso/KG" required>
+            </div>
+
+            <div class="input-consulta">
+                <input type="number" id="altura" name="altura" placeholder="Altura/cm" required>
+            </div>
+
+            <div class="input-consulta">
+                <input type="number" id="medida-cintura" name="medida-cintura" placeholder="Medida da Cintura/cm"
+                    required>
+            </div>
+
+            <div class="input-consulta">
+                <input type="number" id="adiponectina" name="adiponectina" placeholder="Adiponectina em mgc/mL"
+                    required>
+            </div>
+
+            <div class="input-consulta">
+                <input type="number" id="press-arterial" name="press-arterial"
+                    placeholder="Pressão arterial diastólica/mm-mercurio" required>
+            </div>
+            <div class="resultado-calculo">
+                <p>
+                    Resultado
+                </p>
+            </div>
+
+            <div class="cadConsulta">
+                <div class="aplicar">
+                    <input type="submit" class="botoesNovaConsulta" value="Calcular Sensibilidade Insulinica">
+                </div>
+
+                <div class="cadastrarConsulta">
+                    <input type="submit" class="botoesNovaConsulta" value="Cadastrar Consulta">
+                </div>
+            </div>
+
+        </form>
+
+    </div>
+
+    <div class="historicos">
+        <div class="historico-calculo">
+            <input type="submit" class="botaoHistoricos" value="Imprimir histórico de cálculo">
+        </div>
+
+        <div class="histórico-paciente">
+            <input type="submit" class="botaoHistoricos" value="Imprimir histórico do paciente">
+        </div>
+    </div>
+
+</body>
+
+</html>

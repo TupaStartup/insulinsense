@@ -1,0 +1,159 @@
+/*Div da borda*/
+
+body {
+    margin: 0;
+}
+
+.app-bar-index {
+    width: 200px;
+    height: 100vh;
+    background-color: #79d1fa5e;
+    position: fixed;
+    left: 0;
+}
+
+.app-bar-index img {
+    width: 180px;
+    margin-top: 20px;
+    padding: 3%;
+}
+
+.app-bar-index a {
+    display: block;
+    /* Torna o link um bloco para ocupar toda a largura */
+    height: 5%;
+    /* Ocupa 100% da altura da div */
+    text-align: center;
+    /* Centraliza o texto dentro do link */
+    font-size: 25px;
+    text-decoration: none;
+    background-color: rgba(255, 255, 255, 0.699);
+    text-align: center;
+    color: rgb(0, 0, 0);
+    border-bottom: 1px solid #000000;
+    /*Linha entre os botões*/
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.app-bar-index a:last-child {
+    border-bottom: none;
+    /* Remove a linha do último link para evitar duplicação */
+}
+
+/*Estilo da div central*/
+
+.input-consulta {
+    float: left;
+    margin-right: 10px;
+    /* Espaço entre os inputs, se desejar */
+}
+
+/*PAG. CONSULTAS{*/
+
+.filtro-consultas {
+    position: fixed;
+    top: 15%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #f0f0f0;
+    padding: 20px;
+    text-align: center;
+}
+
+.filtro-consultas {
+    background-color: #79d1fa5e;
+    border-radius: 20px;
+}
+
+.filtro-consultas h1 {
+    font-size: 20px;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+
+.filtrarConsultas input{
+    margin-top: 10px;
+}
+
+.input-consulta input{
+    font-weight: bold;
+    color: rgb(0, 0, 0);
+    padding: 5px;
+    border: none;
+    border-radius: 10px;
+}
+
+/*}PAG. CONSULTAS*/
+
+/*PAG. PACIENTES{*/
+.pacientes-busca {
+    position: fixed;
+    top: 15%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #f0f0f0;
+    padding: 20px;
+    text-align: center;
+}
+
+.pacientes-busca {
+    background-color: #79d1fa5e;
+    border-radius: 20px;
+}
+
+.pacientes-busca h1 {
+    font-size: 20px;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+#cpfPaciente {
+    /* Estilos para o input com o ID 'meuInput' */
+    font-weight: bold;
+    color: rgb(0, 0, 0);
+    padding: 5px;
+    border: none;
+    border-radius: 10px;
+}
+
+.buscarPacientes input{
+    margin-top: 20px;
+}
+/*}PAG. PACIENTES*/
+
+#convenio {
+    font-weight: bold;
+    color: rgb(0, 0, 0);
+    padding: 5px;
+    border: none;
+    border-radius: 10px;
+}
+
+
+input[type="submit"] {
+    background-color: #4caf50;
+    color: #fff;
+    padding: 5px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+.voltar-para {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    /* Espaço entre os links */
+    order: 2;
+    /* Reorganiza a ordem dos itens no layout flexível */
+}
+
+.resultados-pesquisa {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.resultados-pesquisa{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}

@@ -102,42 +102,10 @@ class SensibilidadeInsulinica:
 # Criando as rotas de retorno do cálculo
 # Rota do cálculo da sensibilidade insulínica para pacientes
 # com diabetes tipo 1
-@app.route("/T1D", methods=["POST", "GET"])
+@app.route("/T1D")
 def T1D():
   # Verfica se o método é POST
-  if request.method == "POST":
-    # Verifica se a requisição contém dados JSON
-    if request.is_json:
-      # Obter o JSON do corpo da requisição
-      dados_json = request.get_json()
-      # Deserializando o JSON
-      dados = json.loads(dados_json)
-      # Processando os parâmetros
-      cintura = dados["medida_cintura"]
-      pesocorporal = dados["peso"]
-      unidadesdiarias = dados["unidade_diaria_insulina"]
-      doseinsulina = unidadesdiarias/pesocorporal
-      dbp = dados["pressao_arterial"]
-      sexobiologico_bit = dados["sexo_biologico"]
-      hba1c = dados["hba1c"]
-      glicosejejum = dados["glicose_jejum"]
-      triglicerideos = dados["triglicerideos"]
-      adiponectina = dados["adiponectina"]
-      # Instanciando o objeto 
-      paciente = SensibilidadeInsulinica(cintura, doseinsulina, dbp,
-                                    sexobiologico_bit, hba1c, glicosejejum,
-                                    triglicerideos, adiponectina)   
-      # Calculando e convertendo o valor para json
-      T1D = {"T1D": paciente.Calcular_eiS_T1D()}
-      # Retorna o valor
-      return json.dumps(T1D)
-    # Retorna erro
-    errojson = {"ERROR": "A requisição deve conter dados JSON"}
-    return json.dumps(errojson)
-  # Se o método for GET, ele retorna uma mensagem
-  elif request.method == "GET":
-    mensagemget = {"INFO": "Envie uma requisicao POST"}
-    return json.dumps(mensagemget)
+return 'hello word'
     
 # Rota do cálculo da sensibilidade insulínica para pacientes
 # com diabetes tipo 1 e que não fizeram jejum

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Cadastro</title>
+</head>
+
+<body>
+    <div id="Login">
+
+        <div class="caixa">
+            
+            <img src="assets/InsulinSense.png" alt="logo">
+            <h1>Faça seu cadastro</h1>
+
+            <form id="validacao" onsubmit="return registroUsuario()">
+
+                <div class="nome" id="nome">
+                    <input type="text" id="nomeInput" placeholder="Nome completo" required>
+                </div>
+
+                <div class="email" id="email">
+                    <input type="email" id="emailInput" placeholder="E-mail" required>
+                </div>
+    
+                <div class="senha" id="senha">
+                    <input type="password" id="senhaInput" placeholder="Senha" required>
+                </div>
+
+                <div class="senha" id="senha">
+                    <input type="password" id="confirmaSenhaInput" placeholder="Confirme sua senha" required>
+                </div>
+
+                <div class="entrar">
+                    <p>Já tem uma conta?<a href="login.html"> Faça login</a></p>
+                    <input type="submit" value="Cadastrar-se">
+                </div>
+                
+            </form>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>
+
+<script src="scripts/autenticar.js"></script>

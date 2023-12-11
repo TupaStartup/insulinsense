@@ -2,10 +2,10 @@
 
 namespace App\Models\Facade;
 
-use App\Models\Entity\Consultas;
+use App\Models\Entity\Medicos;
 
 
-class ConsultasDB {
+class MedicoDB {
     
     public static function editarConsulta($id)
     {

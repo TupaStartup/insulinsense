@@ -20,8 +20,6 @@ services:
             context: .
             dockerfile: app/Models/Calculo/Dockerfile
         restart: unless-stopped
-        ports:
-            - "5001:5001"
         #working_dir: /var/www/insulinsense/app/Models/Calculo
         #volumes:
         #    - ./:/var/www/insulinsense/app/Models/Calculo

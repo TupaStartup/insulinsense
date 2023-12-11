@@ -1,0 +1,142 @@
+body {
+  margin: 0;
+  /* Remover margens padrão do corpo da página */
+  padding: 0;
+  /* Remover preenchimento padrão do corpo da página */
+  font-family: Arial, sans-serif;
+  /* Escolher uma fonte padrão */
+}
+
+.topo img {
+  width: 180px;
+  padding: 3%;
+}
+
+.voltar-para {
+  position: fixed;
+  top: 0;
+  right: 0;
+  padding: 10px;
+}
+
+.nova-consulta {
+  /* Adicione um espaçamento para evitar sobreposição com a div topo */
+  text-align: center;
+  background-color: #79d1fa5e;
+  border-radius: 20px;
+}
+
+.nova-consulta input {
+  border-radius: 100px;
+  padding: 3px;
+  margin-bottom: 15px;
+}
+
+.nova-consulta input {
+  border-radius: 15px;
+  border: none;
+  width: 250px;
+  height: 40px;
+  padding-left: 15px;
+  background-color: rgb(255, 255, 255);
+  color: #0f0e0e;
+}
+
+.resultado-calculo {
+  margin-top: 20px;
+  background-color: #cc1a148f;
+  /* Cor de fundo para a div de resultado */
+  padding: 5px;
+  border-radius: 10px;
+  /* Borda arredondada */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  /* Sombra suave */
+  max-width: 150px;
+  /* Largura máxima */
+  margin-left: auto;
+  /* Centralizar a div horizontalmente */
+  margin-right: auto;
+  font-size: 16px;
+  /* Tamanho da fonte */
+  color: #ffffff;
+  /* Cor do texto */
+  margin: 0;
+  /* Remover margens padrão */
+  margin-left: auto;
+  /* Centralizar a div horizontalmente */
+  margin-right: auto;
+}
+
+
+.cadastrarConsulta {
+  margin-top: 10px;
+}
+
+.historicos {
+  margin-top: 20px;
+  /* Adicione um espaçamento entre o formulário e a div históricos */
+  text-align: center;
+  display: flex;
+  /* Tornar o container uma flex container */
+  justify-content: space-evenly;
+  /* Espaçamento uniforme entre os itens */
+}
+
+.botaoHistoricos {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 15px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: #fff;
+  background-color: #4CAF50;
+  /* Cor de fundo do botão de calcular */
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s;
+  margin-top: 10px;
+  margin-bottom: 30px;
+}
+
+.botaoHistoricos:hover {
+  background-color: #036d03;
+  /* Cor de fundo quando hover (ativo) */
+}
+
+.botoesNovaConsulta {
+  display: inline-block;
+  padding: 10px;
+  font-size: 15px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: #fff;
+  background-color: #4CAF50;
+  /* Cor de fundo do botão de calcular */
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s;
+}
+
+.botoesNovaConsulta:hover {
+  background-color: #036d03;
+  /* Cor de fundo quando hover (ativo) */
+}
+
+.cadConsulta {
+  display: flex;
+  justify-content: space-evenly;
+  /* Espaçamento uniforme entre os itens */
+}
+
+.titulo-input {
+  font-weight: bold;
+  margin-bottom: 5px;font-size: 10px;
+  margin-top: -22px;
+  color: #000000a4;
+}
