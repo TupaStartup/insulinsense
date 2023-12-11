@@ -14,18 +14,20 @@ services:
             - redis
         networks:
             - laravel
-    
+
     calculo:
         build:
             context: .
             dockerfile: app/Models/Calculo/Dockerfile
         restart: unless-stopped
+        ports:
+            - "5001:5001"
         #working_dir: /var/www/insulinsense/app/Models/Calculo
         #volumes:
         #    - ./:/var/www/insulinsense/app/Models/Calculo
         networks:
             - laravel
-    
+
     # nginx
     nginx:
         image: nginx:alpine

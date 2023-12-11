@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\DB;
 class DadosClinicosTest extends TestCase
 {
     const url = 'http://localhost:8989/api';
-     
+
     public function formularioPadrao($formulario)
     {
         $faker = Faker::create();
@@ -26,6 +26,7 @@ class DadosClinicosTest extends TestCase
             'unidade_diaria_insulina' => $formulario['unidade_diaria_insulina'] ?? $faker->numberBetween(1, 100),
             'peso' => $formulario['peso'] ?? $faker->numberBetween(40, 180),
             'dose_insulina' => $formulario['dose_insulina'] ?? $formulario['unidade_diaria_insulina'] / $formulario['peso'],
+            'sexo_biologico' => $formulario['sexo_biologico'] ?? 1,
             'sensibilidade_insulinica' => $formulario['sensibilidade_insulinica'] ?? 0
         ];
     }
@@ -39,7 +40,7 @@ class DadosClinicosTest extends TestCase
 
         $response->assertStatus(200);
     }
-    
+
     public function buscarDadosClinicos()
     {
         return DB::table('dados_clinicos')->whereNotNull('id')->value('id');
@@ -69,22 +70,22 @@ class DadosClinicosTest extends TestCase
             'dose_insulina' => 11,
             'sensibilidade_insulinica' => 11
          ];
-         
+
          $id = 1;
          $dado_editar = $this->get(self::url.'/dados-clinicos/editar/'.$id);
          $response = $this->put(self::url.'/dados-clinicos/atualizar/'.$id, $this->formularioPadrao($formulario));
-        
-         
+
+
          dump(json_decode($dado_editar->getContent(), true));
          dump($formulario);
          $response->assertStatus(200);
     }
-    
+
     /** @test */
     public function cadastroVariosDadosClinicos(): void
     {
         DB::beginTransaction();
-    
+
         try {
             for ($i = 0; $i < 40; $i++) {
                $formulario=
@@ -94,17 +95,17 @@ class DadosClinicosTest extends TestCase
                 ];
                 $response = $this->post(self::url.'/dados-clinicos/cadastrar', $this->formularioPadrao($formulario));
             }
-    
+
             // A verificação do status deve ocorrer dentro do bloco try-catch
             $response->assertStatus(200);
-    
+
             DB::commit();
         } catch (\Exception $e) {
             DB::rollback();
             $this->fail($e->getMessage());
         }
     }
-    
+
     /** @test */
     public function deletarDadosClinicos()
     {
@@ -113,14 +114,15 @@ class DadosClinicosTest extends TestCase
 
         $response->assertStatus(200);
     }
-    
+
     /** @test */
     public function teste()
     {
         $formulario=['unidade_diaria_insulina' => 7,
-                     'peso' => 80];
-        $response = $this->post(self::url.'/teste',$this->formularioPadrao($formulario));
-        dump($response->getContent(), true);      
-        $response->assertStatus(200);  
+                     'peso' => 80,
+                     'sexo_biologico' => 1];
+        $response = $this->post(self::url.'/dados-clinicos/calculo/t1d',$this->formularioPadrao($formulario));
+        dump($response->getContent(), true);
+        $response->assertStatus(200);
     }
 }
