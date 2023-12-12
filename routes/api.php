@@ -29,4 +29,9 @@ Route::delete('/dados-clinicos/deletar/{id}', 'App\Http\Controllers\DadosClinico
 
 
 // Rtoas
-Route::post('/teste', 'App\Http\Controllers\DadosClinicosController@calculo')->name('t1d');
+Route::post('dados-clinicos/t1d', 'App\Http\Controllers\DadosClinicosController@calculo')->name('t1d');
+Route::post('dados-clinicos/t1d-nonfasting', 'App\Http\Controllers\DadosClinicosController@calculo')->name('t1d-nonfasting');
+Route::post('dados-clinicos/t1d-exadiponectina', 'App\Http\Controllers\DadosClinicosController@calculo')->name('t1d-exAdiponectina');
+Route::post('dados-clinicos/non-diabetic', 'App\Http\Controllers\DadosClinicosController@calculo')->name('nonDiabetic');
+Route::post('dados-clinicos/non-diabetic-nonfasting', 'App\Http\Controllers\DadosClinicosController@calculo')->name('nonDiabetic-nonfasting');
+Route::post('dados-clinicos/non-diabetic-exadiponectina', 'App\Http\Controllers\DadosClinicosController@calculo')->name('nonDiabetic-exAdiponectina');

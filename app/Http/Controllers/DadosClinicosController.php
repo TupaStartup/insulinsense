@@ -44,11 +44,11 @@ class DadosClinicosController extends Controller
             $dados = $request->validated();
             match ($request->route()->getName()){
                 't1d' => $url = Http::post('http://calculo:5001/T1D', json_encode($dados)),
-                't1d-nonfasting' => $url = Http::post('http://127.0.0.1:5001/T1D-nonfasting', json_encode($dados)),
-                't1d-exAdiponectina' => $url = Http::post('http://127.0.0.1:5001/T1D-exAdiponectina', json_encode($dados)),
-                'nonDiabetic' => $url = Http::post('http://127.0.0.1:5001/nonDiabetic', json_encode($dados)),
-                'nonDiabetic-nonfasting' => $url = Http::post('http://127.0.0.1:5001/nonDiabetic-nonfasting', json_encode($dados)),
-                'nonDiabetic-exAdiponectina' => $url = Http::post('http://127.0.0.1:5001/nonDiabetic-exAdiponectina', json_encode($dados))
+                't1d-nonfasting' => $url = Http::post('http://calculo:5001/T1D-nonfasting', json_encode($dados)),
+                't1d-exAdiponectina' => $url = Http::post('http://calculo:5001/T1D-exAdiponectina', json_encode($dados)),
+                'nonDiabetic' => $url = Http::post('http://calculo:5001/nonDiabetic', json_encode($dados)),
+                'nonDiabetic-nonfasting' => $url = Http::post('http://calculo:5001/nonDiabetic-nonfasting', json_encode($dados)),
+                'nonDiabetic-exAdiponectina' => $url = Http::post('http://calculo:5001/nonDiabetic-exAdiponectina', json_encode($dados))
             };
 
             return $url;

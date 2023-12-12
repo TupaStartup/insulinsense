@@ -25,7 +25,7 @@ class DadosClinicosTest extends TestCase
             'adiponectina' => $formulario['adiponectina'] ?? $faker->numberBetween(5, 8,5),
             'unidade_diaria_insulina' => $formulario['unidade_diaria_insulina'] ?? $faker->numberBetween(1, 100),
             'peso' => $formulario['peso'] ?? $faker->numberBetween(40, 180),
-            'dose_insulina' => $formulario['dose_insulina'] ?? $formulario['unidade_diaria_insulina'] / $formulario['peso'],
+            'dose_insulina' => $formulario['dose_insulina'] ?? 15,
             'sexo_biologico' => $formulario['sexo_biologico'] ?? 1,
             'sensibilidade_insulinica' => $formulario['sensibilidade_insulinica'] ?? 0
         ];
@@ -116,12 +116,61 @@ class DadosClinicosTest extends TestCase
     }
 
     /** @test */
-    public function teste()
+    public function t1d()
     {
-        $formulario=['unidade_diaria_insulina' => 7,
-                     'peso' => 80,
-                     'sexo_biologico' => 1];
-        $response = $this->post(self::url.'/teste',$this->formularioPadrao($formulario));
+        $formulario=[];
+        $formulariopost = $this->formularioPadrao($formulario);
+        $response = $this->post(self::url.'/dados-clinicos/t1d', $formulariopost);
+        dump($response->getContent(), true);
+        $response->assertStatus(200);
+    }
+    
+    /** @test */
+        public function t1d_nonfasting()
+    {
+        $formulario=[];
+        $formulariopost = $this->formularioPadrao($formulario);
+        $response = $this->post(self::url.'/dados-clinicos/t1d-nonfasting', $formulariopost);
+        dump($response->getContent(), true);
+        $response->assertStatus(200);
+    }
+    
+    /** @test */
+        public function t1d_exAdiponectina()
+    {
+        $formulario=[];
+        $formulariopost = $this->formularioPadrao($formulario);
+        $response = $this->post(self::url.'/dados-clinicos/t1d-exadiponectina', $formulariopost);
+        dump($response->getContent(), true);
+        $response->assertStatus(200);
+    }
+    
+    /** @test */
+        public function nonDiabetic()
+    {
+        $formulario=[];
+        $formulariopost = $this->formularioPadrao($formulario);
+        $response = $this->post(self::url.'/dados-clinicos/non-diabetic', $formulariopost);
+        dump($response->getContent(), true);
+        $response->assertStatus(200);
+    }
+    
+    /** @test */
+        public function nonDiabetic_nonfasting()
+    {
+        $formulario=[];
+        $formulariopost = $this->formularioPadrao($formulario);
+        $response = $this->post(self::url.'/dados-clinicos/non-diabetic-nonfasting', $formulariopost);
+        dump($response->getContent(), true);
+        $response->assertStatus(200);
+    }
+    
+    /** @test */
+        public function nonDiabetic_exAdiponectina()
+    {
+        $formulario=[];
+        $formulariopost = $this->formularioPadrao($formulario);
+        $response = $this->post(self::url.'/dados-clinicos/non-diabetic-exadiponectina', $formulariopost);
         dump($response->getContent(), true);
         $response->assertStatus(200);
     }

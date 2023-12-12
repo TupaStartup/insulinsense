@@ -32,6 +32,7 @@ class DadosClinicosRequest extends FormRequest
             'adiponectina' => 'nullable|numeric',
             'unidade_diaria_insulina' => 'nullable|numeric',
             'dose_insulina' => 'nullable|numeric',
+            'sexo_biologico' => 'nullable|integer',
             'sensibilidade_insulinica' => 'nullable'
             // Unidade Diária de Insulina (U/dia) / Peso (kg)
         ];
