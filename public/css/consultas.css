@@ -83,6 +83,23 @@ body {
     border-radius: 10px;
 }
 
+.input-consulta {
+    margin-bottom: 15px; /* Adiciona margem inferior para separar os campos */
+}
+
+.input-consulta label {
+    display: block;
+    font-size: 14px; /* Tamanho da fonte desejado */
+    margin-bottom: 5px; /* Adiciona margem inferior para espaçamento entre a label e o input */
+}
+
+.input-consulta input {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+    font-size: 16px; /* Tamanho da fonte desejado para o input */
+}
+
 /*}PAG. CONSULTAS*/
 
 /*PAG. PACIENTES{*/
@@ -128,7 +145,6 @@ body {
     border-radius: 10px;
 }
 
-
 input[type="submit"] {
     background-color: #4caf50;
     color: #fff;
@@ -156,4 +172,40 @@ input[type="submit"] {
 
 .resultados-pesquisa{
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+/* Estilos para a tabela de resultados */
+.resultados-pesquisa {
+    margin-top: 30px;
+}
+
+#tabela-resultados {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    font-family: 'Arial', sans-serif;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+#tabela-resultados th, #tabela-resultados td {
+    border: 1px solid #dddddd;
+    padding: 16px;
+    text-align: left;
+}
+
+#tabela-resultados th {
+    background-color: #3498db;
+    color: #ffffff;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+#tabela-resultados tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+#tabela-resultados tbody tr:hover {
+    background-color: #e0e0e0;
 }

@@ -19,10 +19,12 @@
     </div>
 
     <div class="nova-consulta">
+        
         <h1>Nova Consulta</h1>
-        <form id="validacao" onsubmit="return cadastrarConsulta()">
+        
+        <form id="validacao" onsubmit="return onFormSubmit()">
             <div class="input-consulta">
-                <input type="text" id="nome-paciente" name="nome-paciente" placeholder="Nome do Paciente" required>
+                <input type="text" id="cpfPaciente" name="cpfPaciente" placeholder="CPF do Paciente" required>
             </div>
 
             <div class="input-consulta">
@@ -34,7 +36,11 @@
             <div class="input-consulta">
                 <input type="text" id="convenio" name="convenio" placeholder="Convênio" required>
             </div>
-
+            
+            <div class="input-consulta">
+                <input type="text" id="sexoBiologico" name="sexoBiologico" placeholder="Sexo Biológico" required>
+            </div>
+            
             <div class="input-consulta">
                 
                 <input type="date" id="Data de Nascimento" name="Data de Nascimento" placeholder="Data de Nascimento"
@@ -72,11 +78,11 @@
 
             <div class="cadConsulta">
                 <div class="aplicar">
-                    <input type="submit" class="botoesNovaConsulta" value="Calcular Sensibilidade Insulinica">
+                    <input type="submit" class="botoesNovaConsulta" value="Calcular Sensibilidade Insulinica" onclick="calculoSensibilidade()">
                 </div>
 
                 <div class="cadastrarConsulta">
-                    <input type="submit" class="botoesNovaConsulta" value="Cadastrar Consulta">
+                    <input type="submit" class="botoesNovaConsulta" value="Cadastrar Consulta" onclick="cadastrarConsulta()">
                 </div>
             </div>
 
